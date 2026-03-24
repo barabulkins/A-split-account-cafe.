@@ -1,0 +1,5 @@
+$kind: http-request
+description: Получение конкретной карточки по ID
+url: http://localhost:3000/menu/1
+method: GET
+order: 3000

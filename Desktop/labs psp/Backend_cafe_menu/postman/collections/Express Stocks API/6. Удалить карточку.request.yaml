@@ -1,0 +1,5 @@
+$kind: http-request
+description: Удаление карточки по ID. Возвращает статус 204 No Content при успехе.
+url: http://localhost:3000/menu/3
+method: DELETE
+order: 6000

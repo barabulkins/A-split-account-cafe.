@@ -1,0 +1,4 @@
+$kind: collection
+description: Коллекция для тестирования REST API меню кафе на Express.js
+variables:
+  baseUrl: http://localhost:3000

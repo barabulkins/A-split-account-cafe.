@@ -1,0 +1,5 @@
+$kind: http-request
+description: Проверка глобальной обработки 404 для несуществующих маршрутов
+url: http://localhost:3000/nonexistent
+method: GET
+order: 9000

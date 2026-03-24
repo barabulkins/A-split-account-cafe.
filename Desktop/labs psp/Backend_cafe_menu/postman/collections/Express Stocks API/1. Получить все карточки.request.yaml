@@ -1,0 +1,5 @@
+$kind: http-request
+description: Получение всех карточек Stock из базы данных
+url: http://localhost:3000/menu
+method: GET
+order: 1000

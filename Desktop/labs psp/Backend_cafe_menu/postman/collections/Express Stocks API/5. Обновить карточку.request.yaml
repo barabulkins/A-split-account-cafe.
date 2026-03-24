@@ -1,0 +1,15 @@
+$kind: http-request
+description: Частичное обновление карточки. Можно передать только те поля,
+  которые нужно изменить.
+url: http://localhost:3000/menu/1
+method: PATCH
+headers:
+  Content-Type: application/json
+body:
+  type: text
+  content: |-
+    {
+      "title": "Медовик классический",
+      "text": "<h6>Состав:</h6> <h7>Обновлённый состав.</h7><h6>На 100г:</h6> <h6>310 ккал; 4,1 белки; 15,0 жиры; 40,0 углеводы</h6>"
+    }
+order: 5000

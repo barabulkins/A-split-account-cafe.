@@ -1,0 +1,9 @@
+$kind: http-request
+description: Поиск карточек по части названия (регистронезависимый поиск)
+url: http://localhost:3000/menu?title=Медовик
+method: GET
+queryParams:
+  - key: title
+    value: Медовик
+    description: Поиск по названию (регистронезависимый)
+order: 2000
