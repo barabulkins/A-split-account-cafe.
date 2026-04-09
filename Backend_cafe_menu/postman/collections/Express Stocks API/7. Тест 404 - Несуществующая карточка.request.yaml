@@ -1,5 +1,0 @@
-$kind: http-request
-description: Проверка обработки ошибки 404 при запросе несуществующей карточки
-url: http://localhost:3000/menu/999
-method: GET
-order: 7000
