@@ -1,0 +1,129 @@
+.dish-btn {
+  border: 3px solid #fffefe;
+  margin-right: 5px;
+  border-radius: 10px;
+  margin-top: 5px;
+  width: 50px;
+  height: 50px;
+  background: white;
+  color: white;
+  font-size: 1.5rem;
+  font-weight: 500;
+  font-family: Arial, Helvetica, sans-serif;
+  cursor: pointer;
+  user-select: none;
+  color: #adb0ac;
+}
+
+.dish-btn:hover {
+  background: #dbe4db;
+  color: rgb(95, 158, 98);
+}
+
+.dish-btn:active {
+  filter: brightness(130%);
+}
+
+.dish-btn.main-dish {
+  background: white;
+}
+
+body {
+  background-color: #ced0cd;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+}
+
+.dish-btn.side-dish {
+  border: 3px solid #fffefe;
+  background: white;
+  color: #adb0ac;
+}
+
+.dish-btn.dish-btn.side-dish.dish-btn:hover {
+  background: #dbe4db;
+  color: rgb(95, 158, 98);
+}
+
+.dish-btn.side-dish:active {
+  filter: brightness(130%);
+}
+
+.dish-btn.serve {
+  border: 3px solid #fffefe;
+  width: 110px;
+  clip-path: none;
+  border-radius: 10px;
+}
+
+.dish-btn.main-dish.dish-btn:hover {
+  background: #dbe4db;
+  color: rgb(95, 158, 98);
+}
+
+.dish-btn.main-dish:active {
+  filter: brightness(130%);
+}
+
+.plate {
+  border: 3px solid #fffefe;
+  width: 275px;
+  height: 50px;
+  margin-bottom: 15px;
+  padding-right: 10px;
+  background: white;
+  text-align: right;
+  color: #adb0ac;
+  font-size: 1.5rem;
+  font-family: Arial, Helvetica, sans-serif;
+  border-radius: 10px;
+}
+
+.guest-plate {
+  border: 3px solid #fffefe;
+  width: 140px;
+  border-radius: 10px;
+  height: 50px;
+  margin-bottom: 15px;
+  padding-right: 10px;
+  background: white;
+  color: #adb0ac;
+  font-size: 0.8rem;
+  font-family: Arial, Helvetica, sans-serif;
+  margin-top: 6px;
+}
+
+.guest-plate:hover {
+  background: #dbe4db;
+  color: rgb(95, 158, 98);
+}
+
+.guest-plate:active {
+  filter: brightness(130%);
+}
+
+.dark-mode {
+  background-color: rgb(0, 0, 0);
+}
+
+.chef {
+  background-color: rgb(15, 160, 10);
+  color: #ffffff;
+}
+
+details {
+  background: white;
+  color: #adb0ac;
+  border: 3px solid #fffefe;
+  border-radius: 10px;
+  width: 220px;
+  height: 50px;
+  margin-top: auto;
+}
+
+h7 {
+  color: white;
+}
