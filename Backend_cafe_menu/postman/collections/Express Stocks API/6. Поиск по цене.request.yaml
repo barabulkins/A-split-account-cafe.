@@ -1,0 +1,8 @@
+$kind: http-request
+name: 6. Поиск по цене
+url: http://localhost:3003/dishes?price=350
+method: GET
+queryParams:
+  - key: price
+    value: "350"
+order: 2246868860931006

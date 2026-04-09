@@ -1,0 +1,247 @@
+{
+	"info": {
+		"_postman_id": "express-dishes-api",
+		"name": "Express Dishes API",
+		"description": "Коллекция для тестирования REST API карточек блюд (Dishes) на Express.js",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "1. Получить все блюда",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3003/dishes",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "3003",
+					"path": ["dishes"]
+				},
+				"description": "Получение всех карточек блюд из базы данных"
+			},
+			"response": []
+		},
+		{
+			"name": "2. Поиск блюд по названию",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3003/dishes?title=Паста",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "3003",
+					"path": ["dishes"],
+					"query": [
+						{
+							"key": "title",
+							"value": "Паста",
+							"description": "Поиск по названию (регистронезависимый)"
+						}
+					]
+				},
+				"description": "Поиск карточек по части названия (регистронезависимый поиск)"
+			},
+			"response": []
+		},
+		{
+			"name": "2b. Поиск блюд по цене",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3003/dishes?price=450",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "3003",
+					"path": ["dishes"],
+					"query": [
+						{
+							"key": "price",
+							"value": "450",
+							"description": "Поиск по точной цене"
+						}
+					]
+				},
+				"description": "Поиск блюд по точной цене"
+			},
+			"response": []
+		},
+		{
+			"name": "2c. Поиск блюд по названию и цене",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3003/dishes?title=Паста&price=450",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "3003",
+					"path": ["dishes"],
+					"query": [
+						{
+							"key": "title",
+							"value": "Паста"
+						},
+						{
+							"key": "price",
+							"value": "450"
+						}
+					]
+				},
+				"description": "Комбинированный поиск по названию и цене"
+			},
+			"response": []
+		},
+		{
+			"name": "3. Получить блюдо по ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3003/dishes/1",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "3003",
+					"path": ["dishes", "1"]
+				},
+				"description": "Получение конкретного блюда по ID"
+			},
+			"response": []
+		},
+		{
+			"name": "4. Создать новое блюдо",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"src\": \"https://example.com/dish.jpg\",\n  \"title\": \"Новое блюдо\",\n  \"text\": \"Описание нового блюда\",\n  \"modelPath\": \"/models/newdish.glb\",\n  \"price\": 599\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3003/dishes",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "3003",
+					"path": ["dishes"]
+				},
+				"description": "Создание новой карточки блюда. ID генерируется автоматически. Обязательные поля: src, title, text, modelPath, price."
+			},
+			"response": []
+		},
+		{
+			"name": "5. Обновить блюдо",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"title\": \"Обновленное название\",\n  \"price\": 650\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3003/dishes/2",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "3003",
+					"path": ["dishes", "2"]
+				},
+				"description": "Частичное обновление блюда. Можно передать только те поля, которые нужно изменить."
+			},
+			"response": []
+		},
+		{
+			"name": "6. Удалить блюдо",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3003/dishes/4",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "3003",
+					"path": ["dishes", "4"]
+				},
+				"description": "Удаление блюда по ID. Возвращает статус 204 No Content при успехе."
+			},
+			"response": []
+		},
+		{
+			"name": "7. Тест 404 - Несуществующее блюдо",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3003/dishes/999",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "3003",
+					"path": ["dishes", "999"]
+				},
+				"description": "Проверка обработки ошибки 404 при запросе несуществующего блюда"
+			},
+			"response": []
+		},
+		{
+			"name": "8. Тест 400 - Невалидные данные (нет price)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"title\": \"Только название\",\n  \"src\": \"http://example.com\",\n  \"text\": \"описание\",\n  \"modelPath\": \"/model\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3003/dishes",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "3003",
+					"path": ["dishes"]
+				},
+				"description": "Проверка валидации - создание блюда без поля price должно вернуть 400 Bad Request"
+			},
+			"response": []
+		},
+		{
+			"name": "9. Тест 404 - Несуществующий маршрут",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3003/nonexistent",
+					"protocol": "http",
+					"host": ["localhost"],
+					"port": "3003",
+					"path": ["nonexistent"]
+				},
+				"description": "Проверка глобальной обработки 404 для несуществующих маршрутов"
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:3003",
+			"type": "string"
+		}
+	]
+}

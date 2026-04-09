@@ -1,6 +1,7 @@
 $kind: http-request
+name: 2. Поиск карточек по названию
 description: Поиск карточек по части названия (регистронезависимый поиск)
-url: http://localhost:3000/menu?title=Медовик
+url: http://localhost:3003/menu?title=Медовик
 method: GET
 queryParams:
   - key: title
