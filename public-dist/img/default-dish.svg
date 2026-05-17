@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="280" viewBox="0 0 400 280" role="img" aria-label="Блюдо">
+  <rect width="400" height="280" fill="#d9d9d9"/>
+  <circle cx="200" cy="140" r="72" fill="#f7f7f7" stroke="#a8a8a8" stroke-width="8"/>
+  <circle cx="200" cy="140" r="38" fill="#cec9c9"/>
+  <text x="200" y="248" font-family="Arial, sans-serif" font-size="24" text-anchor="middle" fill="#666">Dishes</text>
+</svg>
