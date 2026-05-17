@@ -1,0 +1,13 @@
+{
+  "name": "dishes-lab5",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node dishes-server.js"
+  },
+  "dependencies": {
+    "bootstrap": "^5.3.3",
+    "express": "^5.2.1",
+    "json-server": "^1.0.0-beta.3"
+  }
+}

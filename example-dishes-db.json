@@ -1,0 +1,35 @@
+{
+  "dishes": [
+    {
+      "id": "1",
+      "title": "Медовик",
+      "price": "2 500 ₽",
+      "priceValue": 2500,
+      "description": "Медовый торт со сливочным кремом и мягкими коржами.",
+      "text": "2 500 ₽",
+      "src": "img/medovik.png",
+      "modelPath": "models/medovik.glb"
+    },
+    {
+      "id": "2",
+      "title": "Хрустящая креветка",
+      "price": "1 500 ₽",
+      "priceValue": 1500,
+      "description": "Обжаренные креветки в хрустящей панировке с нежным вкусом.",
+      "text": "1 500 ₽",
+      "src": "img/krevetki.jpg",
+      "modelPath": "models/shrimps.glb"
+    },
+    {
+      "id": "3",
+      "title": "Шарлотка",
+      "price": "2 000 ₽",
+      "priceValue": 2000,
+      "description": "Домашняя шарлотка с яблоками и лёгким ароматом корицы.",
+      "text": "2 000 ₽",
+      "src": "img/sharlotka.jpg",
+      "modelPath": "models/sharlotka.glb"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}
