@@ -14,6 +14,7 @@ export class DishesCardComponent {
           <p class="card-text dishes-price mb-3">${escapeHtml(data.cardText)}</p>
           <div class="dishes-card-actions mt-auto">
             <button class="btn btn-outline-light" id="dishes-click-card-${data.id}" data-id="${data.id}" type="button">Подробнее</button>
+            <button class="btn btn-outline-light" id="dishes-edit-card-${data.id}" data-id="${data.id}" type="button">Редактировать</button>
             <button class="btn btn-outline-light" id="dishes-delete-card-${data.id}" data-id="${data.id}" type="button">Удалить</button>
           </div>
         </div>
@@ -21,17 +22,22 @@ export class DishesCardComponent {
     `;
   }
 
-  renderDishes(data, onDetails, onDelete) {
+  renderDishes(data, onDetails, onEdit, onDelete) {
     const wrapper = document.createElement('div');
     wrapper.className = 'h-100';
     wrapper.innerHTML = this.getDishesHTML(data);
     this.parent.appendChild(wrapper);
 
     const detailsButton = document.getElementById(`dishes-click-card-${data.id}`);
+    const editButton = document.getElementById(`dishes-edit-card-${data.id}`);
     const deleteButton = document.getElementById(`dishes-delete-card-${data.id}`);
 
     if (detailsButton && typeof onDetails === 'function') {
       detailsButton.addEventListener('click', onDetails);
+    }
+
+    if (editButton && typeof onEdit === 'function') {
+      editButton.addEventListener('click', onEdit);
     }
 
     if (deleteButton && typeof onDelete === 'function') {

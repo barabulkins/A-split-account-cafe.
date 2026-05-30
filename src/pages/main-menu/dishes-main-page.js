@@ -165,6 +165,7 @@ export class DishesMainPage {
       productCard.renderDishes(
         item,
         this.onDishCardClick.bind(this),
+        this.onDishEditClick.bind(this),
         this.onDishDeleteClick.bind(this),
       );
     });
@@ -176,13 +177,14 @@ export class DishesMainPage {
     productPage.renderDishes();
   }
 
+  onDishEditClick(event) {
+    const cardId = event.currentTarget.dataset.id;
+    const editPage = new DishesEditPage(this.parent, cardId);
+    editPage.renderDishes();
+  }
+
   async onDishDeleteClick(event) {
     const cardId = event.currentTarget.dataset.id;
-    const confirmed = window.confirm('Удалить это блюдо из API?');
-    if (!confirmed) {
-      return;
-    }
-
     this.setDishesStatus('Удаление блюда...', 'warning');
 
     try {
