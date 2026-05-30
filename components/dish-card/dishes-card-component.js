@@ -44,15 +44,24 @@ export class DishesCardComponent {
             >
               Удалить
             </button>
+            <button
+              class="btn btn-outline-light"
+              id="dishes-edit-card-${dishesItem.id}"
+              data-id="${dishesItem.id}"
+              type="button"
+            >
+              Редактировать
+            </button>
           </div>
         </div>
       </article>
     `;
   }
 
-  addDishesListeners(dishesItem, onOpen, onDelete) {
+  addDishesListeners(dishesItem, onOpen, onDelete, onEdit) {
     const dishesOpenButton = document.getElementById(`dishes-open-card-${dishesItem.id}`);
     const dishesDeleteButton = document.getElementById(`dishes-delete-card-${dishesItem.id}`);
+    const dishesEditButton = document.getElementById(`dishes-edit-card-${dishesItem.id}`);
 
     if (dishesOpenButton && typeof onOpen === "function") {
       dishesOpenButton.addEventListener("click", onOpen);
@@ -61,13 +70,17 @@ export class DishesCardComponent {
     if (dishesDeleteButton && typeof onDelete === "function") {
       dishesDeleteButton.addEventListener("click", onDelete);
     }
+
+    if (dishesEditButton && typeof onEdit === "function") {
+      dishesEditButton.addEventListener("click", onEdit);
+    }
   }
 
-  renderDishes(dishesItem, onOpen, onDelete) {
+  renderDishes(dishesItem, onOpen, onDelete, onEdit) {
     const dishesWrapper = document.createElement("div");
     dishesWrapper.className = "h-100";
     dishesWrapper.innerHTML = this.getDishesHTML(dishesItem);
     this.parent.appendChild(dishesWrapper);
-    this.addDishesListeners(dishesItem, onOpen, onDelete);
+    this.addDishesListeners(dishesItem, onOpen, onDelete, onEdit);
   }
 }

@@ -1,6 +1,7 @@
-import { DishesCardComponent } from "../../components/dish-card/dishes-card-component.js?v=3";
+import { DishesCardComponent } from "../../components/dish-card/dishes-card-component.js?v=4";
 import { DishesHeaderButtonComponent } from "../../components/buttons/dishes-header-button-component.js?v=3";
 import { DishesCreatePage } from "../create-dish/dishes-create-page.js?v=3";
+import { DishesEditPage } from "../edit-dish/dishes-edit-page.js?v=3";
 import { DishesProductPage } from "../product-dish/dishes-product-page.js?v=3";
 import { dishesApi } from "../../modules/dishes-api.js";
 
@@ -165,6 +166,7 @@ export class DishesMainPage {
         dishesItem,
         this.onDishCardClick.bind(this),
         this.onDishDeleteClick.bind(this),
+        this.onDishEditClick.bind(this),
       );
     });
   }
@@ -177,9 +179,6 @@ export class DishesMainPage {
 
   onDishDeleteClick(event) {
     const dishesCardId = event.currentTarget.dataset.id;
-    const isDeleteConfirmed = window.confirm("Удалить это блюдо из API?");
-    if (!isDeleteConfirmed) return;
-
     this.setDishesStatus("Удаление блюда...", "warning");
 
     dishesApi.deleteDish(dishesCardId, (_, dishesStatus) => {
@@ -190,6 +189,12 @@ export class DishesMainPage {
 
       this.setDishesStatus(`Не удалось удалить блюдо. HTTP статус: ${dishesStatus}.`, "danger");
     });
+  }
+
+  onDishEditClick(event) {
+    const dishesCardId = event.currentTarget.dataset.id;
+    const dishesEditPage = new DishesEditPage(this.parent, dishesCardId);
+    dishesEditPage.renderDishes();
   }
 
   onCreateDishClick() {
